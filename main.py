@@ -23,12 +23,6 @@ class SinglyLinkedList:
         nodos.append("None")
         return " -> ".join(nodos)
 
-    def __iter__(self):
-        nodo = self.head
-        while nodo is not None:
-            yield nodo
-            nodo = nodo.next
-
     def insertBeginning(self, nodo):
         nodo.next = self.head
         self.head = nodo
