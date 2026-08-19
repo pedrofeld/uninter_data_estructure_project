@@ -82,6 +82,8 @@ class SinglyLinkedList:
             print(f"{nodo.color}{nodo.number}")
             nodo = nodo.next
 
+list = SinglyLinkedList()
+
 while True:
     print("1 - Adicionar paciente a fila")
     print("2 - Mostrar pacientes na fila")
