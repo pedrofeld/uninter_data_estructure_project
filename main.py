@@ -40,47 +40,49 @@ class SinglyLinkedList:
         nodo.next = current_nodo.next
         current_nodo.next = nodo
 
-    def attendPatient(list):
-        if list.head is None:
-            print("Nao ha pacientes na fila.")
-            return
-        nodo = list.head
-        list.head = list.head.next
-        print(f"Proximo paciente para atendimento: cartao {nodo.color}{nodo.number}")
+def insert(list):
+    color = input("Informe a cord do cartao (A ou V): ").strip().upper()
 
-    def insert(list):
-        color = input("Informe a cord do cartao (A ou V): ").strip().upper()
+    if color == "V":
+        number = list.greenNumber
+        list.greenNumber += 1
+    elif color == "A":
+        number = list.yellowNumber
+        list.yellowNumber += 1
+    else:
+        print("Cor invalida!")
+        return
 
-        if color == "V":
-            number = list.greenNumber
-            list.greenNumber += 1
-        elif color == "A":
-            number = list.yellowNumber
-            list.yellowNumber += 1
-        else:
-            print("Cor invalida!")
-            return
+    nodo = Card(color, number)
 
-        nodo = Card(color, number)
+    if list.head is None:
+        list.head = nodo
+    elif color == "V":
+        list.insertWithoutPriority(nodo)
+    elif color == "A":
+        list.insertWithPriority(nodo)
+    else:
+        print("Cor invalida!")
 
-        if list.head is None:
-            list.head = nodo
-        elif color == "V":
-            list.insertWithoutPriority(nodo)
-        else:
-            list.insertWithPriority(nodo)
+    print(f"Paciente cadastrado com o cartao {color}{number}.")
 
-        print(f"Paciente cadastrado com o cartao {color}{number}.")
+def printWaitList(list):
+    if list.head is None:
+        print("Nao ha pacientes na fila")
+        return
+    print("Fila de espera:")
+    nodo = list.head
+    while nodo is not None:
+        print(f"{nodo.color}{nodo.number}")
+        nodo = nodo.next
 
-    def printWaitList(list):
-        if list.head is None:
-            print("Nao ha pacientes na fila")
-            return
-        print("Fila de espera:")
-        nodo = list.head
-        while nodo is not None:
-            print(f"{nodo.color}{nodo.number}")
-            nodo = nodo.next
+def attendPatient(list):
+    if list.head is None:
+        print("Nao ha pacientes na fila.")
+        return
+    nodo = list.head
+    list.head = list.head.next
+    print(f"Proximo paciente para atendimento: cartao {nodo.color}{nodo.number}")
 
 list = SinglyLinkedList()
 
