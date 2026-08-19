@@ -23,9 +23,11 @@ class SinglyLinkedList:
         nodos.append("None")
         return " -> ".join(nodos)
 
-    def insertBeginning(self, nodo):
-        nodo.next = self.head
-        self.head = nodo
+    def insertWithoutPriority(self, nodo):
+        current_nodo = self.head
+        while current_nodo.next is not None:
+            current_nodo = current_nodo.next
+        current_nodo.next = nodo
 
     def insertEnd(self, nodo):
         if self.head is None:
