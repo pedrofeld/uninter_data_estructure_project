@@ -11,6 +11,8 @@ class Card:
 class SinglyLinkedList:
     def __init__(self):
         self.head = None
+        self.greenNumber = 1
+        self.yellowNumber = 201
 
     def __repr__(self):
         nodo = self.head
