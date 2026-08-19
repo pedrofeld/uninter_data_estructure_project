@@ -78,6 +78,16 @@ class SinglyLinkedList:
 
         print(f"Paciente cadastrado com o cartao {color}{number}.")
 
+    def printWaitList(list):
+        if list.head is None:
+            print("Nao ha pacientes na fila")
+            return
+        print("Fila de espera:")
+        nodo = list.head
+        while nodo is not None:
+            print(f"{nodo.color}{nodo.number}")
+            nodo = nodo.next
+
 while True:
     print("1 - Adicionar paciente a fila")
     print("2 - Mostrar pacientes na fila")
