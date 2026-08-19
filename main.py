@@ -65,6 +65,18 @@ class SinglyLinkedList:
             list.yellowNumber += 1
         else:
             print("Cor invalida!")
+            return
+
+        nodo = Card(color, number)
+
+        if list.head is None:
+            list.head = nodo
+        elif color == "V":
+            list.insertWithoutPriority(nodo)
+        else:
+            list.insertWithPriority(nodo)
+
+        print(f"Paciente cadastrado com o cartao {color}{number}.")
 
 while True:
     print("1 - Adicionar paciente a fila")
