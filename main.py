@@ -5,13 +5,55 @@ class Card:
         self.next = None
 
     def __repr__(self):
-        return f"[{self.color}, {self.number}]"
+        data = f"[{self.color}, {self.number}]"
+        return data
 
 class SinglyLinkedList:
-    def __init__(self, nodos):
+    def __init__(self):
         self.head = None
-        if nodos is not None:
-            nodo = Card()
+
+    def __repr__(self):
+        nodo = self.head
+        nodos = []
+        while nodo is not None:
+            nodos.append(str(nodo))
+            nodo = nodo.next
+        nodos.append("None")
+        return " -> ".join(nodos)
+
+    def __iter__(self):
+        nodo = self.head
+        while nodo is not None:
+            yield nodo
+            nodo = nodo.next
+
+    def insertBeginning(self, nodo):
+        nodo.next = self.head
+        self.head = nodo
+
+    def insertEnd(self, nodo):
+        if self.head is None:
+            self.head = nodo
+            return
+        current_nodo = self.head
+        while current_nodo.next != None:
+            current_nodo = current_nodo.next
+        current_nodo.next = nodo
+        return
+
+    def delete(self, number):
+        if self.head is None:
+            raise Exception("A lista está vazia!")
+        if self.head.number == number:
+            self.head = self.head.next
+            return
+        previous_nodo = self.head
+        for nodo in self:
+            if nodo.number == number:
+                previous_nodo.next = nodo.next
+                return
+            previous_nodo = nodo
+        raise Exception("Nó com o dado '%s' não foi econtrado." % number)
 
 while True:
     print("1 - Adicionar paciente a fila")
