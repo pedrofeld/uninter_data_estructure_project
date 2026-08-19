@@ -51,6 +51,18 @@ class SinglyLinkedList:
             previous_nodo = nodo
         raise Exception("Nó com o dado '%s' não foi econtrado." % number)
 
+    def insert(list):
+        color = input("Informe a cord do cartao (A ou V): ").strip().upper()
+
+        if color == "V":
+            number = list.greenNumber
+            list.greenNumber += 1
+        elif color == "A":
+            number = list.yellowNumber
+            list.yellowNumber += 1
+        else:
+            print("Cor invalida!")
+
 while True:
     print("1 - Adicionar paciente a fila")
     print("2 - Mostrar pacientes na fila")
