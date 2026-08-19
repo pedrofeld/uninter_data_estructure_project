@@ -29,15 +29,16 @@ class SinglyLinkedList:
             current_nodo = current_nodo.next
         current_nodo.next = nodo
 
-    def insertEnd(self, nodo):
-        if self.head is None:
+    def insertWithPriority(self, nodo):
+        if self.head.color == "V":
+            nodo.next = self.head
             self.head = nodo
             return
         current_nodo = self.head
-        while current_nodo.next != None:
+        while current_nodo.next is not None and current_nodo.next.color == "A":
             current_nodo = current_nodo.next
+        nodo.next = current_nodo.next
         current_nodo.next = nodo
-        return
 
     def delete(self, number):
         if self.head is None:
