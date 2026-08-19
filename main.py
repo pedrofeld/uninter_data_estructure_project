@@ -92,25 +92,14 @@ while True:
     print("3 - Chamar paciente")
     print("4 - Sair")
 
-    op = int(input("Escolha uma opcao: "))
-    if op == 1:
-        cardColor = input("Informe a cor do cartao: ")
-        if cardColor == "V":
-            cardGreenNumber = int(input("Informe o numero do cartao: "))
-            if cardGreenNumber > 200:
-                print("O numero dos cartoes verdes vao somente ate 200.")
-            elif cardGreenNumber <= 0:
-                print("O numero do cartao precisa ser maior que 0.")
-        elif cardColor == "A":
-            cardYellowNumber = int(input("Informe o numero do cartao: "))
-            if cardYellowNumber < 200:
-                print("O numero do cartao amarelo precisa ser maior que 200.")
-        else:
-            print("Cor invalida!")
-    if op == 2:
-        print("Mostrando pacientes...")
-    if op == 3:
-        print("Chamando paciente...")
-    if op == 4:
+    op = input("Escolha uma opcao: ")
+
+    if op == "1":
+        insert(list)
+    elif op == "2":
+        printWaitList(list)
+    elif op == "3":
+        attendPatient(list)
+    elif op == "4":
         print("Encerrando...")
         break
