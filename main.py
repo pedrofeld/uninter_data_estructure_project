@@ -40,19 +40,13 @@ class SinglyLinkedList:
         nodo.next = current_nodo.next
         current_nodo.next = nodo
 
-    def delete(self, number):
-        if self.head is None:
-            raise Exception("A lista está vazia!")
-        if self.head.number == number:
-            self.head = self.head.next
+    def attendPatient(list):
+        if list.head is None:
+            print("Nao ha pacientes na fila.")
             return
-        previous_nodo = self.head
-        for nodo in self:
-            if nodo.number == number:
-                previous_nodo.next = nodo.next
-                return
-            previous_nodo = nodo
-        raise Exception("Nó com o dado '%s' não foi econtrado." % number)
+        nodo = list.head
+        list.head = list.head.next
+        print(f"Proximo paciente para atendimento: cartao {nodo.color}{nodo.number}")
 
     def insert(list):
         color = input("Informe a cord do cartao (A ou V): ").strip().upper()
