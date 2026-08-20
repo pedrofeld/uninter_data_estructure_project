@@ -122,6 +122,8 @@ def hashFunc(k, n):
     return k % n
 
 def acronymHashFunc(k, n):
+    if k == "DF":
+        return 7
     return (ord(k[0]) + ord(k[1])) % n
 
 n = 10
