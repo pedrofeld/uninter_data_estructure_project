@@ -109,3 +109,20 @@
 
 ## ATIVIDADE 2 - SISTEMA DE EMPLACAMENTO DE VEICULOS
 
+class States:
+    def __init__(self, stateAcronym, stateName):
+        self.stateAcronym = stateAcronym
+        self.stateName = stateName
+        self.next = None
+
+    def __repr__(self):
+        return self.stateAcronym
+
+def hashFunc(k, n):
+    return k % n
+
+def acronymHashFunc(k, n):
+    return (ord(k[0]) + ord(k[1])) % n
+
+n = 10
+hashTable = [None] * n
