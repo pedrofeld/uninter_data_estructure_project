@@ -118,9 +118,6 @@ class States:
     def __repr__(self):
         return self.stateAcronym
 
-def hashFunc(k, n):
-    return k % n
-
 def acronymHashFunc(k, n):
     if k == "DF":
         return 7
@@ -128,3 +125,19 @@ def acronymHashFunc(k, n):
 
 n = 10
 hashTable = [None] * n
+
+while True:
+    print("1 - Inserir estado na tabela hash")
+    print("2 - Imprimir tabela hash de estados")
+    print("3 - Sair")
+
+    op = input("Escolha uma opcao: ")
+
+    if op == "1":
+        acronym = input("Informe a sigla do estado: ")
+        acronymHashFunc(acronym, n)
+    elif op == "2":
+        print("Imprimindo...")
+    elif op == "3":
+        print("Encerrando...")
+        break
