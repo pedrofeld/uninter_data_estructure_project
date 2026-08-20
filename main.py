@@ -109,7 +109,7 @@
 
 ## ATIVIDADE 2 - SISTEMA DE EMPLACAMENTO DE VEICULOS
 
-class States:
+class State:
     def __init__(self, stateAcronym, stateName):
         self.stateAcronym = stateAcronym
         self.stateName = stateName
@@ -118,13 +118,61 @@ class States:
     def __repr__(self):
         return self.stateAcronym
 
-def acronymHashFunc(k, n):
-    if k == "DF":
-        return 7
-    return (ord(k[0]) + ord(k[1])) % n
+class HashTable:
+    def __init__(self):
+        self.tabela = [None] * n
 
+    def acronymHashFunc(k, n):
+        if k == "DF":
+            return 7
+        return (ord(k[0]) + ord(k[1])) % n
+
+    def identityState(self, stateAcronym):
+        if not stateAcronym in statesList:
+            print("Estado invalido")
+        stateName = statesList[stateAcronym][0]
+        return stateName
+
+    def insert(self, stateAcronym):
+        position = self.acronymHashFunc(stateAcronym)
+        stateName = self.identityState(stateAcronym)
+        nodo = State(stateAcronym, stateName)
+
+        nodo.next = self.table[position]
+        self.table[position] = nodo
+
+statesList = [
+    ("AC", "Acre"),
+    ("AL", "Alagoas"),
+    ("AP", "Amapá"),
+    ("AM", "Amazonas"),
+    ("BA", "Bahia"),
+    ("CE", "Ceará"),
+    ("DF", "Distrito Federal"),
+    ("ES", "Espírito Santo"),
+    ("GO", "Goiás"),
+    ("MA", "Maranhão"),
+    ("MT", "Mato Grosso"),
+    ("MS", "Mato Grosso do Sul"),
+    ("MG", "Minas Gerais"),
+    ("PA", "Pará"),
+    ("PB", "Paraíba"),
+    ("PR", "Paraná"),
+    ("PE", "Pernambuco"),
+    ("PI", "Piauí"),
+    ("RJ", "Rio de Janeiro"),
+    ("RN", "Rio Grande do Norte"),
+    ("RS", "Rio Grande do Sul"),
+    ("RO", "Rondônia"),
+    ("RR", "Roraima"),
+    ("SC", "Santa Catarina"),
+    ("SP", "São Paulo"),
+    ("SE", "Sergipe"),
+    ("TO", "Tocantins"),
+    ("PF", "Pedro Feld")
+]
 n = 10
-hashTable = [None] * n
+table = HashTable()
 
 while True:
     print("1 - Inserir estado na tabela hash")
@@ -135,7 +183,7 @@ while True:
 
     if op == "1":
         acronym = input("Informe a sigla do estado: ")
-        acronymHashFunc(acronym, n)
+        table.insert(acronym)
     elif op == "2":
         print("Imprimindo...")
     elif op == "3":
