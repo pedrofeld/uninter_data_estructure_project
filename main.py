@@ -170,7 +170,24 @@ statesList = [
     ("SC", "Santa Catarina"),
     ("SP", "São Paulo"),
     ("SE", "Sergipe"),
-    ("TO", "Tocantins"),
-    ("PF", "Pedro Feld")
+    ("TO", "Tocantins")
 ]
+
 table = HashTable()
+
+print("Tabela hash antes das inserções:")
+table.printTable()
+
+
+for acronym, name in statesList:
+    table.insert(acronym, name)
+
+
+print("\nTabela hash após inserir os estados e o Distrito Federal:")
+table.printTable()
+
+
+table.insert("PF", "Pedro Feld")
+
+print("\nTabela hash após inserir o estado fictício:")
+table.printTable()
