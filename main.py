@@ -127,22 +127,11 @@ class HashTable:
             return 7
         return (ord(k[0]) + ord(k[1])) % 10
 
-    def identityState(self, stateAcronym):
-        for acronym, name in statesList:
-            if acronym == stateAcronym:
-                return name
-        print("Estado invalido")
-        return None
-
-    def insert(self, stateAcronym):
-        stateName = self.identityState(stateAcronym)
-        if stateName is None:
-            return
+    def insert(self, stateAcronym, stateName):
         position = self.acronymHashFunc(stateAcronym)
         nodo = State(stateAcronym, stateName)
         nodo.next = self.table[position]
         self.table[position] = nodo
-        print("Estado inserido na tabela hash")
 
     def printTable(self):
         print("Tabela de estados:")
