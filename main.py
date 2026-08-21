@@ -144,6 +144,16 @@ class HashTable:
         self.table[position] = nodo
         print("Estado inserido na tabela hash")
 
+    def printTable(self):
+        print("Tabela de estados:")
+        for position in range(n):
+            print(f"{position}: ", end="")
+            nodo = self.table[position]
+            while nodo is not None:
+                print(nodo, end=" -> ")
+                nodo = nodo.next
+            print("None")
+
 statesList = [
     ("AC", "Acre"),
     ("AL", "Alagoas"),
@@ -188,7 +198,7 @@ while True:
         acronym = input("Informe a sigla do estado: ")
         table.insert(acronym)
     elif op == "2":
-        print("Imprimindo...")
+        table.printTable()
     elif op == "3":
         print("Encerrando...")
         break
