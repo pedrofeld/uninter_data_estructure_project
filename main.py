@@ -120,12 +120,12 @@ class State:
 
 class HashTable:
     def __init__(self):
-        self.table = [None] * n
+        self.table = [None] * 10
 
     def acronymHashFunc(self, k):
         if k == "DF":
             return 7
-        return (ord(k[0]) + ord(k[1])) % n
+        return (ord(k[0]) + ord(k[1])) % 10
 
     def identityState(self, stateAcronym):
         for acronym, name in statesList:
@@ -184,21 +184,4 @@ statesList = [
     ("TO", "Tocantins"),
     ("PF", "Pedro Feld")
 ]
-n = 10
 table = HashTable()
-
-while True:
-    print("1 - Inserir estado na tabela hash")
-    print("2 - Imprimir tabela hash de estados")
-    print("3 - Sair")
-
-    op = input("Escolha uma opcao: ")
-
-    if op == "1":
-        acronym = input("Informe a sigla do estado: ")
-        table.insert(acronym)
-    elif op == "2":
-        table.printTable()
-    elif op == "3":
-        print("Encerrando...")
-        break
