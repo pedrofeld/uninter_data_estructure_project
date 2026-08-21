@@ -135,7 +135,7 @@ class HashTable:
 
     def printTable(self):
         print("Tabela de estados:")
-        for position in range(n):
+        for position in range(10):
             print(f"{position}: ", end="")
             nodo = self.table[position]
             while nodo is not None:
